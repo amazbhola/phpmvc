@@ -1,12 +1,17 @@
 <?php include_once 'partials/_header.php'; ?>
 <div class="content">
+  <style>
+    .text_shadow{
+      text-shadow: -1px -1px 5px #000;
+    }
+  </style>
   <header class="">
     <div class="bg-header-image bg-cover h-fit py-40">
       <div class="flex flex-wrap-reverse md:flex-row p-8">
         <div class="w-full md:w-3/5  flex flex-col items-center justify-center">
-          <h2 class="text-6xl text-center font-semibold capitalize p-10  md:px-20 md:py-5 font-sans text-amber-400 drop-shadow-2xl ">Hi I'm <?php echo $user[0]['username']; ?></h2>
-          <h4 class="text-xl text-gray-100 font-semibold">Web Developer, PHP related issues fixer</h4>
-          <p class="p-10 tracking-widest  text-xl text-center text-gray-100 font-semibold"><?php echo $user[0]['about_me']; ?></p>
+          <h2  class="text_shadow text-6xl text-center font-semibold capitalize p-10  md:px-20 md:py-5 font-sans text-sky-200">Hi I'm <?php echo $user[0]['username']; ?></h2>
+          <h4 class="text_shadow text-xl text-gray-100 font-semibold">Web Developer, PHP related issues fixer</h4>
+          <p  class="text_shadow p-10 tracking-widest  text-xl text-center text-gray-100 font-semibold"><?php echo $user[0]['about_me']; ?></p>
           <div class="pt-10 flex gap-3 items-center">
             <a class="bg-blue-600 tracking-wide px-6 py-3 rounded-3xl text-gray-100 text-center font-semibold text-sm" href="<?php echo $user[0]['facebook']; ?>">Facebook</a>
             <a class="bg-sky-600 tracking-wide px-6 py-3 rounded-3xl text-gray-100 text-center font-semibold text-sm" href="<?php echo $user[0]['twitter']; ?>">Twitter</a>
@@ -15,7 +20,7 @@
           </div>
         </div>
         <div class="w-full md:w-2/5 flex items-center justify-center">
-          <img style="height:400px; width:400px;" class="object-cover rounded-full" src="<?php echo media('profile_photo/'.$user[0]['profile_photo']); ?>" alt="images">
+          <img style="height:400px; width:400px; " class="object-cover rounded-full scale-x-[-1]" src="<?php echo media('profile_photo/'.$user[0]['profile_photo']); ?>" alt="images">
         </div>
 
       </div>
