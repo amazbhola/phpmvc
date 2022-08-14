@@ -12,4 +12,17 @@ or
 yarn build
 ```
 
-to bundle your application
+
+
+```
+composer update
+```
+
+user email :
+```
+sohel@sohel.com
+```
+password :
+```
+123456
+```
