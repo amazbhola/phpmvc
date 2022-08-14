@@ -1,0 +1,25 @@
+{
+    "name": "amaz/phpmvc",
+    "description": "This is simple MVC Framework in PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Base/functions.php"
+            
+        ]
+    },
+    "require": {
+        "pecee/simple-router": "dev-master",
+        "vlucas/phpdotenv": "5.4.x-dev"
+    },
+    "authors": [
+        {
+            "name": "amazbhola",
+            "email": "amazingbhola@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
