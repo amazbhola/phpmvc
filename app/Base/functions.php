@@ -6,38 +6,41 @@ use Pecee\Http\Response;
 use Pecee\Http\Request;
 use App\Models\Setting;
 
-function setting_data()
+function setting_data($column_name)
 {
     $setting = new Setting();
-    return $setting->showSettingData();
+
+    // return $setting->showSettingData();
+    $result =  $setting->showSettingData();
+    return $result[0][$column_name];
 }
 
 function views(string $path, array $data = [])
 {
     extract($data);
-    require_once VIEWS . '/' . $path . '.php';
+    require_once VIEWS.'/'.$path.'.php';
 }
 
 function assets($assets_file_name)
 {
-    return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . BASE_DIR . '/assets/' . $assets_file_name;
+    return $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.BASE_DIR.'/assets/'.$assets_file_name;
 }
 function media($assets_file_name)
 {
-    return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . BASE_DIR . '/media/' . $assets_file_name;
+    return $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.BASE_DIR.'/media/'.$assets_file_name;
 }
 function checkNotLogin()
 {
     session_start();
     if (!isset($_SESSION['username'])) {
-        header('location:' . url('login'));
+        header('location:'.url('login'));
     }
 }
 function checkLogin()
 {
     session_start();
     if (isset($_SESSION['username'])) {
-        header('location:' . url('dashboard'));
+        header('location:'.url('dashboard'));
     }
 }
 function sessionMassageSet($massage)
@@ -47,8 +50,6 @@ function sessionMassageSet($massage)
 }
 function sessionMassageGet()
 {
-
-
     if (isset($_SESSION['flash_message'])) {
         $message = $_SESSION['flash_message'];
         unset($_SESSION['flash_message']);
@@ -68,39 +69,34 @@ function sessionMassageGet()
  * You can also use the same syntax when searching for a specific controller-class "MyController@home".
  * If no arguments is specified, it will return the url for the current loaded route.
  *
- * @param string|null $name
  * @param string|array|null $parameters
- * @param array|null $getParams
- * @return \Pecee\Http\Url
+ *
  * @throws \InvalidArgumentException
  */
 function url(?string $name = null, $parameters = null, ?array $getParams = null): Url
 {
-    $name = BASE_DIR . '/' . $name;
+    $name = BASE_DIR.'/'.$name;
+
     return Router::getUrl($name, $parameters, $getParams);
 }
 
-/**
- * @return \Pecee\Http\Response
- */
 function response(): Response
 {
     return Router::response();
 }
 
-/**
- * @return \Pecee\Http\Request
- */
 function request(): Request
 {
     return Router::request();
 }
 
 /**
- * Get input class
- * @param string|null $index Parameter index name
+ * Get input class.
+ *
+ * @param string|null       $index        Parameter index name
  * @param string|mixed|null $defaultValue Default return value
- * @param array ...$methods Default methods
+ * @param array             ...$methods   Default methods
+ *
  * @return \Pecee\Http\Input\InputHandler|array|string|null
  */
 function input($index = null, $defaultValue = null, ...$methods)
@@ -112,10 +108,6 @@ function input($index = null, $defaultValue = null, ...$methods)
     return request()->getInputHandler();
 }
 
-/**
- * @param string $url
- * @param int|null $code
- */
 function redirect(string $url, ?int $code = null): void
 {
     if ($code !== null) {
@@ -126,8 +118,7 @@ function redirect(string $url, ?int $code = null): void
 }
 
 /**
- * Get current csrf-token
- * @return string|null
+ * Get current csrf-token.
  */
 function csrf_token(): ?string
 {
@@ -141,9 +132,10 @@ function csrf_token(): ?string
 
 function dd($data)
 {
-
-    echo "<pre>";
+    echo '<pre>';
     var_dump($data);
-    echo "</pre>";
-    die();
+    echo '</pre>';
+    exit();
 }
+
+

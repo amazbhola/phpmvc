@@ -26,17 +26,14 @@ include __DIR__ . './partials/_header.php';
                 </div>
                 <div class="">
                     <label class="text-gray-100" for="description">Description</label><br>
-                    <textarea class="w-full outline-none py-1 px-2 mt-4 text-gray-800" name="description" id="description" cols="30" rows="10">
-                    <?php echo $old_blog['description'] ?>
-                    </textarea>
+                    <textarea class="w-full outline-none py-1 px-2 mt-4 text-gray-800" name="description" id="description" cols="30" rows="10"><?php echo $old_blog['description'];?></textarea>
                 </div>
                 <div class="">
                     <label class="text-gray-100" for="blog_photo">Blog Image</label><br>
                     <input type="file" name="blog_photo">
-                    <img style="width:50%;" src="<?php echo media('blog/') . $old_blog['blog_photo'] ?>" alt="">
+                    <img style="width:50%;" src="<?php echo media('blog/') . $old_blog['blog_photo'];?>" alt="">
                 </div>
                 <div class="">
-
                     <input class="bg-gray-800 hover:bg-gray-900 text-gray-100 px-4 py-1 cursor-pointer mt-10" id="submit" name="submit" type="submit">
                 </div>
             <?php endforeach; ?>

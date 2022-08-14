@@ -17,6 +17,7 @@ yarn build
 ```
 composer update
 ```
+Download sql file in Database Folder and insert into Mysql Database
 
 user email :
 ```

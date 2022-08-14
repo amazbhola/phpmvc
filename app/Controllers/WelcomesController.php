@@ -14,8 +14,7 @@ class WelcomesController extends Controller
     {
         $blog = new Blog();
         $blogData = $blog->showBlog();
-        $setting = new Setting();
-        $setting_data = $setting->showSettingData();
+        
 
         $portfolio = new Portfolio();
         $portfolios = $portfolio->showData();
@@ -23,7 +22,7 @@ class WelcomesController extends Controller
         $users = new User();
         $user = $users->find(1);
 
-        return views('index', compact('blogData', 'setting_data', 'portfolios', 'user'));
+        return views('index', compact('blogData',  'portfolios', 'user'));
     }
     public function blogdata()
     {
@@ -56,5 +55,10 @@ class WelcomesController extends Controller
     {
 
         return views('dashboard/index');
+    }
+
+    public function function_check()
+    {
+       return views('practice');
     }
 }

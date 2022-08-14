@@ -12,6 +12,7 @@ use Pecee\SimpleRouter\Exceptions\NotFoundHttpException;
 
 
 
+Router::get('practice', [WelcomesController::class, 'function_check']);
 Router::get('/', [WelcomesController::class, 'index']);
 Router::get('blog', [WelcomesController::class, 'blogdata']);
 Router::get('singleBlog/{id}', [WelcomesController::class, 'singleBlog']);

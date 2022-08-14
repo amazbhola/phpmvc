@@ -85,56 +85,6 @@
           </div>
         <?php } ?>
 
-        <!-- portfolio -->
-        <!-- portfolio -->
-        <!-- <div class="w-full md:basis-1/4 lg:basis-1/6 bg-gray-200 shadow ">
-          <div class="p-4 border ">
-            <img class="object-cover" src="http://localhost:81/phpmvc/images/portfolio-1.webp" alt="">
-            <h3 class="capitalize text-3xl font-semibold py-2">blogs Title</h3>
-            <div class="pt-2 flex items-center gap-3">
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">Laravel</span>
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">PHP</span>
-            </div>
-          </div>
-        </div> -->
-        <!-- portfolio -->
-        <!-- portfolio -->
-        <!-- <div class="w-full md:basis-1/4 lg:basis-1/6 bg-gray-200 shadow ">
-          <div class="p-4 border ">
-            <img class="object-cover" src="http://localhost:81/phpmvc/images/portfolio-1.webp" alt="">
-            <h3 class="capitalize text-3xl font-semibold py-2">blogs Title</h3>
-            <div class="pt-2 flex items-center gap-3">
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">Laravel</span>
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">PHP</span>
-            </div>
-          </div>
-        </div> -->
-        <!-- portfolio -->
-        <!-- portfolio -->
-        <!-- <div class="w-full md:basis-1/4 lg:basis-1/6 bg-gray-200 shadow ">
-          <div class="p-4 border ">
-            <img class="object-cover" src="http://localhost:81/phpmvc/images/portfolio-1.webp" alt="">
-            <h3 class="capitalize text-3xl font-semibold py-2">blogs Title</h3>
-            <div class="pt-2 flex items-center gap-3">
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">Laravel</span>
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">PHP</span>
-            </div>
-          </div>
-        </div> -->
-        <!-- portfolio -->
-        <!-- portfolio -->
-        <!-- <div class="w-full md:basis-1/4 lg:basis-1/6 bg-gray-200 shadow ">
-          <div class="p-4 border ">
-            <img class="object-cover" src="http://localhost:81/phpmvc/images/portfolio-1.webp" alt="">
-            <h3 class="capitalize text-3xl font-semibold py-2">blogs Title</h3>
-            <div class="pt-2 flex items-center gap-3">
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">Laravel</span>
-              <span class="bg-blue-500 rounded-2xl px-4 py-1 text-gray-100">PHP</span>
-            </div>
-          </div>
-        </div> -->
-        <!-- portfolio -->
-
       </div>
     </div>
   </section>
@@ -143,7 +93,7 @@
       <div class="py-10">
         <h3 class="text-4xl font-bold text-center text-gray-800">Contact Me</h3>
       </div>
-      <div class="p-8 flex flex-wrap  gap-2 ">
+      <div class="flex flex-wrap-reverse md:flex-row p-8">
         <div class="w-full md:w-3/5">
           <form action="<?php echo url('userLogin'); ?>" method="post" class="">
             <div class="pb-4">
@@ -168,20 +118,19 @@
             <hr class="my-4">
           </form>
         </div>
-        <div class="w-full md:w-2/5"></div>
-
+        <div class="p-10 w-full md:w-2/5 border-spacing-1">
+        <iframe class="w-full h-full"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d920.2858379902029!2d90.64608516745068!3d22.685706858893074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754d5ab8fd47be5%3A0xf1dbc46467f0bb7e!2sEqra%20Media%20Computer!5e0!3m2!1sen!2sbd!4v1647508964414!5m2!1sen!2sbd"
+           width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </section>
   <section>
     <div class="flex flex-wrap justify-between md:flex-row gap-2 bg-gray-800 text-gray-100 p-8">
       <div class="w-full md:w-1/6">
-        <?php foreach ($setting_data as $footer) { ?>
-          <img src="<?php echo media('logo/').$footer['site_logo']; ?>" alt="">
-          <h3 class="text-2xl font-semibold pb-4 capitalize"><?php echo $footer['description']; ?></h3>
-        <?php } ?>
-
-      </div>
+          <img src="<?php echo media('logo/').setting_data('site_logo'); ?>" alt="">
+          <h3 class="text-2xl font-semibold pb-4 capitalize"><?php echo setting_data('description'); ?></h3>
+       </div>
       <div class="w-full md:w-3/6 space-y-4">
         <h3 class="text-2xl font-semibold pb-4 capitalize">recent artical</h3>
         <?php foreach ($blogData as $blog) { ?>
@@ -201,5 +150,4 @@
       </div>
     </div>
   </section>
-
   <?php include_once 'partials/_footer.php'; ?>
